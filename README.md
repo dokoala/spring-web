@@ -1,8 +1,12 @@
 # spring-web
 기본적인 CRUD 게시판 형태부터 시작해서 기능을 하나씩 추가해 나갈 예정입니다.
-## 1. 
-## DATABASE QUERY
-```
+## 기능
+1. 조회
+2. 등록
+3. 수정
+4. 삭제
+## DB TABLE (MySQL)
+```mysql
 CREATE TABLE `board` (
   `bno` int NOT NULL AUTO_INCREMENT,
   `title` varchar(150) NOT NULL,
