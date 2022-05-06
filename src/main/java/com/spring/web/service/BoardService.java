@@ -9,4 +9,7 @@ public interface BoardService {
 	public void registBoard(BoardVO board);
 	
 	public List<BoardVO> getList();
+	
+	/* 게시판 조회 */
+    public BoardVO getPage(int bno);
 }

@@ -9,4 +9,6 @@ public interface BoardMapper {
 	public void registBoard(BoardVO board);
 	
 	public List<BoardVO> getList();
+	
+	public BoardVO getPage(int bno);
 }

@@ -4,15 +4,24 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   <mapper namespace="com.spring.web.mapper.BoardMapper">
  	
+ 	<!-- 게시판 등록 -->
  	<insert id="registBoard">
         
         insert into board(title, content, writer) values (#{title}, #{content}, #{writer})
         
     </insert>
  
+ 	<!-- 게시판 목록 -->
  	<select id="getList" resultType="com.spring.web.model.BoardVO">
  		
  		select * from board;
  		
  	</select>
+ 	
+ 	<!-- 게시판 조회 -->
+    <select id="getPage" resultType="com.spring.web.model.BoardVO">
+    
+        select * from board where bno = #{bno}
+    
+    </select>
   </mapper>

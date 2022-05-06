@@ -20,25 +20,35 @@ public class BoardServiceTests {
     @Autowired
     private BoardService service;
     
+//    @Test
+//    public void testRegist() {
+//        
+//        BoardVO vo = new BoardVO();
+//        
+//        vo.setTitle("service test");
+//        vo.setContent("service test");
+//        vo.setWriter("service test");
+//        
+//        service.registBoard(vo);
+//        
+//    }
+//    
+//    
+//    /* 게시판 목록 테스트 */
+//    @Test
+//    public void testGetList() {
+//        
+//        service.getList().forEach(board -> log.info("" + board));        
+//        
+//    }
+// 
+    /*게시판 조회*/
     @Test
-    public void testRegist() {
+    public void testGETPage() {
         
-        BoardVO vo = new BoardVO();
+        int bno = 8;
         
-        vo.setTitle("service test");
-        vo.setContent("service test");
-        vo.setWriter("service test");
-        
-        service.registBoard(vo);
-        
-    }
-    
-    
-    /* 게시판 목록 테스트 */
-    @Test
-    public void testGetList() {
-        
-        service.getList().forEach(board -> log.info("" + board));        
+        log.info("" + service.getPage(bno));
         
     }
  

@@ -69,23 +69,22 @@
 				<th class="updatedate_width">수정일</th>
 			</tr>
 		</thead>
-			<tr>
-				<td>번호 내용</td>
-				<td>제목 내용</td>
-				<td>작성자 내용</td>
-				<td>작성일 내용</td>
-				<td>수정일 내용</td>
-			</tr>
 			<c:forEach items="${list}" var="list">
 	            <tr>
 	                <td><c:out value="${list.bno}"/></td>
-	                <td><c:out value="${list.title}"/></td>
+	                <td>
+	                	<a class="move" href='<c:out value="${list.bno}"/>'>
+        					<c:out value="${list.title}"/>
+    					</a>			
+    				</td>
 	                <td><c:out value="${list.writer}"/></td>
 	                <td><c:out value="${list.regdate}"/></td>
 	                <td><c:out value="${list.updateDate}"/></td>
 	            </tr>
         	</c:forEach>
 	</table>
+	<form id="moveForm" method="get">    
+    </form>
 </div>
 
 <script>
@@ -107,6 +106,16 @@ $(document).ready(function(){
 		
 	}	
 	
+});
+
+let moveForm = $("#moveForm");
+
+$(".move").on("click", function(e){
+    e.preventDefault();
+    
+    moveForm.append("<input type='hidden' name='bno' value='"+ $(this).attr("href")+ "'>");
+    moveForm.attr("action", "/board/get");
+    moveForm.submit();
 });
 </script>
 
