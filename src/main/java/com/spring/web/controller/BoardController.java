@@ -38,7 +38,7 @@ public class BoardController {
     }
     
     @GetMapping("/regist")
-    // => @RequestMapping(value="enroll", method=RequestMethod.GET)
+    // => @RequestMapping(value="regist", method=RequestMethod.GET)
     public void boardReigstGET() {
         
         log.info("게시판 등록 페이지 진입");
@@ -62,6 +62,18 @@ public class BoardController {
     public void boardGetPageGET(int bno, Model model) {
         
         model.addAttribute("pageInfo", boardService.getPage(bno));
+        
+    }
+    
+    /* 페이지 수정 */
+    @PostMapping("/modify")
+    public String boardModifyPOST(BoardVO board, RedirectAttributes rttr) {
+        
+        boardService.modify(board);
+        
+        rttr.addFlashAttribute("result", "modify success");
+        
+        return "redirect:/board/list";
         
     }
 }

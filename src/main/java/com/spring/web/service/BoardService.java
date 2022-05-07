@@ -12,4 +12,7 @@ public interface BoardService {
 	
 	/* 게시판 조회 */
     public BoardVO getPage(int bno);
+    
+    /* 게시판 수정 */
+    public int modify(BoardVO board);
 }

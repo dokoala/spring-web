@@ -56,7 +56,7 @@
 </head>
 <body>
 <h1>목록페이지입니다.</h1>
-
+ 
 <div class="table_wrap">
 	<a href="/board/enroll" class="top_btn">게시판 등록</a>
 	<table>
@@ -103,6 +103,10 @@ $(document).ready(function(){
 		if(result === "regist success"){
 			alert("등록이 완료되었습니다.");
 		}
+
+        if(result === "modify success"){
+            alert("수정이 완료되었습니다.");
+        }
 		
 	}	
 	
