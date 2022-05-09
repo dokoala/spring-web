@@ -26,8 +26,16 @@
     </select>
     
      <!-- 게시판 수정 -->
-    <update id="modify">
-        <!-- MySQL -->
+    <update id="modify"> 
+    
         update board set title = #{title}, content = #{content}, updatedate = now() where bno = #{bno}
+     
      </update>
+     
+     <!-- 게시판 삭제 -->
+    <delete id="delete">
+    
+        delete from board where bno = #{bno}
+    
+    </delete>
   </mapper>

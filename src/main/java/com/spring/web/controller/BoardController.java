@@ -66,14 +66,25 @@ public class BoardController {
     }
     
     /* 페이지 수정 */
-    @PostMapping("/modify")
+    @PostMapping("/update")
     public String boardModifyPOST(BoardVO board, RedirectAttributes rttr) {
         
-        boardService.modify(board);
+        boardService.update(board);
         
-        rttr.addFlashAttribute("result", "modify success");
+        rttr.addFlashAttribute("result", "update success");
         
         return "redirect:/board/list";
         
+    }
+    
+    /* 페이지 삭제 */
+    @PostMapping("/delete")
+    public String boardDeletePOST(int bno, RedirectAttributes rttr) {
+        
+        boardService.delete(bno);
+        
+        rttr.addFlashAttribute("result", "delete success");
+        
+        return "redirect:/board/list";
     }
 }

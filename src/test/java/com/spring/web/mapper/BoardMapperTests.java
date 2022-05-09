@@ -65,17 +65,26 @@ public class BoardMapperTests {
 //        
 //    }
      
-     /* 게시판 수정 */
+//     /* 게시판 수정 */
+//     @Test
+//     public void testModify() {
+//         
+//         BoardVO board = new BoardVO();
+//         board.setBno(2);
+//         board.setTitle("수정 제목");
+//         board.setContent("수정 내용");
+//         
+//         int result = mapper.update(board);
+//         log.info("result : " +result);
+//         
+//     }
+     
+     /* 게시판 삭제 */
      @Test
-     public void testModify() {
+     public void testDelete() {
          
-         BoardVO board = new BoardVO();
-         board.setBno(2);
-         board.setTitle("수정 제목");
-         board.setContent("수정 내용");
-         
-         int result = mapper.modify(board);
-         log.info("result : " +result);
+         int result = mapper.delete(5);
+         log.info("result : " + result);
          
      }
 }

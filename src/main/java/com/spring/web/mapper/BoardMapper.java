@@ -16,5 +16,8 @@ public interface BoardMapper {
 	public BoardVO getPage(int bno);
 	
 	/* 수정 */
-    public int modify(BoardVO board);
+    public int update(BoardVO board);
+    
+    /* 게시판 삭제 */
+    public int delete(int bno);
 }
