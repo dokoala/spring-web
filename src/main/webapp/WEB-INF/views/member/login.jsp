@@ -11,8 +11,6 @@
 </h1>
 
 <P>  The time on the server is ${serverTime}. </P>
-<form action="/member/login" method="get">
-    <button class="btn">로그인</button>
-</form>
+<a href="/member/regist" class="top_btn">회원 가입</a>
 </body>
 </html>
