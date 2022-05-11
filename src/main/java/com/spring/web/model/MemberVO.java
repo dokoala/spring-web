@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class MemberVO {
 	/* 회원 번호 */
-    private int bno;
+    private int mno;
     
     /* 아이디 */
     private String id;
@@ -22,11 +22,11 @@ public class MemberVO {
     private Date updateDate;
 
 	public int getBno() {
-		return bno;
+		return mno;
 	}
 
 	public void setBno(int bno) {
-		this.bno = bno;
+		this.mno = bno;
 	}
 
 	public String getId() {
@@ -71,7 +71,7 @@ public class MemberVO {
 
 	@Override
 	public String toString() {
-		return "MemberVO [bno=" + bno + ", id=" + id + ", password=" + password + ", nickname=" + nickname
+		return "MemberVO [bno=" + mno + ", id=" + id + ", password=" + password + ", nickname=" + nickname
 				+ ", regdate=" + regdate + ", updateDate=" + updateDate + ", getBno()=" + getBno() + ", getId()="
 				+ getId() + ", getPassword()=" + getPassword() + ", getNickname()=" + getNickname() + ", getRegdate()="
 				+ getRegdate() + ", getUpdateDate()=" + getUpdateDate() + "]";

@@ -103,13 +103,15 @@ $(document).ready(function(){
 		if(result === "regist success"){
 			alert("등록이 완료되었습니다.");
 		}
-
         if(result === "modify success"){
             alert("수정이 완료되었습니다.");
         }
         if(result === "delete success"){
             alert("삭제가 완료되었습니다.");
         }
+        if(result === "login success"){
+			alert("로그인 성공!");
+		}
 	}	
 	
 });

@@ -6,4 +6,7 @@ public interface MemberService {
 
 	/* 멤버 등록 */
 	public void registMember(MemberVO member);
+	
+	/* 로그인 */
+	public MemberVO login(MemberVO member);
 }

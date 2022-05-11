@@ -4,11 +4,15 @@ import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -37,11 +41,31 @@ public class MemberController {
     }
 	
 	@PostMapping("/login")
-    // => @RequestMapping(value="login", method=RequestMethod.GET)
-    public void loginPOST() {
-        
-        log.info("로그인 페이지 진입");
-        
+    // => @RequestMapping(value="login", method=RequestMethod.POST)
+    public String loginPOST(MemberVO member, HttpSession session, RedirectAttributes rttr) {
+		
+		try { 
+			if(!memberService.login(member).equals(null)) {
+				
+			session.setAttribute("isAdmin", "true");			
+			log.info("로그인 성공");
+	        rttr.addFlashAttribute("result", "login success");
+	        
+	        
+	        return "redirect:/board/list";
+			}
+			else {
+				log.info("로그인 실패");
+	        	rttr.addFlashAttribute("result", "login fail");    
+	        	return "redirect:/member/login"; 
+			}
+		}
+		catch(NullPointerException e){
+			log.info("로그인 실패");
+        	rttr.addFlashAttribute("result", "login fail");    
+        	return "redirect:/member/login"; 
+		}
+              
     }
 	
 	

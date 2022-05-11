@@ -20,16 +20,29 @@ public class MemberServiceTests {
     @Autowired
     private MemberService service;
     
+//    @Test
+//    public void testRegist() {
+//        
+//        MemberVO vo = new MemberVO();
+//        
+//        vo.setId("geobuk11121231233");
+//        vo.setPassword("11223344");
+//        vo.setNickname("yeop2");
+//        
+//        service.registMember(vo);
+//        
+//    }
+    
     @Test
-    public void testRegist() {
+    public void testLogin() {
         
         MemberVO vo = new MemberVO();
         
-        vo.setId("geobuk11121231233");
-        vo.setPassword("11223344");
-        vo.setNickname("yeop2");
+        vo.setId("123123222");
+        vo.setPassword("123123222");
         
-        service.registMember(vo);
+        vo = service.login(vo);
+        log.info("result : " + vo);
         
     }
 //    

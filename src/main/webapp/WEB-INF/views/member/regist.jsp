@@ -20,7 +20,7 @@ $(document).ready(function(){
     function checkAlert(result){
         
         if(result === ''){
-            reutrn;
+            return;
         }
         
         if(result === "regist success"){

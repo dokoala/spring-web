@@ -23,7 +23,7 @@ $(document).ready(function(){
             reutrn;
         }
         
-        if(result === "enrol success"){
+        if(result === "regist success"){
             alert("등록이 완료되었습니다.");
         }
         

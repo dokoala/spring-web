@@ -22,17 +22,29 @@ public class MemberMapperTests {
      @Autowired
      private MemberMapper mapper;
  
+//     @Test
+//     public void testRegist() {
+//         
+//         MemberVO vo = new MemberVO();
+//         
+//         vo.setId("harryqas");
+//         vo.setPassword("12341234");
+//         vo.setNickname("µø∆»¿Ã");
+//         
+//         mapper.registMember(vo);
+//         
+//     }
+     
      @Test
-     public void testEnroll() {
+     public void testLogin() {
          
          MemberVO vo = new MemberVO();
          
-         vo.setId("harryqas");
-         vo.setPassword("12341234");
-         vo.setNickname("µø∆»¿Ã");
+         vo.setId("123123222");
+         vo.setPassword("123123222");
          
-         mapper.registMember(vo);
-         
+         vo = mapper.login(vo);
+         log.info("result : " + vo);
      }
      
 //     @Test
