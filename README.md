@@ -1,10 +1,12 @@
 # spring-web
 기본적인 CRUD 게시판 형태부터 시작해서 기능을 하나씩 추가해 나갈 예정입니다.
 ## 기능
-1. 조회(/board/list)
-2. 등록(/board/regist)
-3. 수정(/board/update)
-4. 삭제(/board/delete)
+1. GET 조회(/board/list)
+2. POST 등록(/board/regist)
+3. POST 수정(/board/update)
+4. POST 삭제(/board/delete)
+5. POST 로그인(/member/login)
+6. GET 회원가입(/member/regist)
 ## DB TABLE (MySQL)
 ```mysql
 CREATE TABLE `board` (
