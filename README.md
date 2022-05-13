@@ -11,6 +11,7 @@
 7. 
 
 ## DB TABLE (MySQL)
+### 1. board table 
 ```mysql
 CREATE TABLE `board` (
   `bno` int NOT NULL AUTO_INCREMENT,
@@ -22,7 +23,7 @@ CREATE TABLE `board` (
   PRIMARY KEY (`bno`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 ```
-
+### 2. member table 
 ```mysql
 CREATE TABLE `member` (
   `mno` int NOT NULL AUTO_INCREMENT,
