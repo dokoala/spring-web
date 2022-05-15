@@ -2,7 +2,14 @@
 기본적인 CRUD 게시판 형태부터 시작해서 기능을 하나씩 추가해 나갈 예정입니다.
 (게시판, 로그인, 댓글)
 
+## 
+javascript, cstl, jsp, java(spring mvc framework), mysql
+
 ## 기능
+1. 게시판을 조회할 수 있는 기능.
+
+
+## 호출
 1. GET 조회(/board/list)
 2. POST 등록(/board/regist)
 3. POST 수정(/board/update)
