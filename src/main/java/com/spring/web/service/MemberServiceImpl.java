@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.spring.web.mapper.MemberMapper;
+import com.spring.web.model.LoginDTO;
 import com.spring.web.model.MemberVO;
 
 @Service
@@ -23,6 +24,11 @@ public class MemberServiceImpl implements MemberService{
 	public MemberVO login(MemberVO member) {
 		// TODO Auto-generated method stub
 		return memberMapper.login(member);
+	}
+
+	@Override
+	public MemberVO login2(LoginDTO loginDTO) {
+		return memberMapper.login2(loginDTO);
 	}
 	
 	

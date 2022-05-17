@@ -1,5 +1,6 @@
 package com.spring.web.service;
 
+import com.spring.web.model.LoginDTO;
 import com.spring.web.model.MemberVO;
 
 public interface MemberService {
@@ -9,4 +10,7 @@ public interface MemberService {
 	
 	/* 로그인 */
 	public MemberVO login(MemberVO member);
+	
+	/* 로그인2 */
+	public MemberVO login2(LoginDTO loginDTO);
 }
