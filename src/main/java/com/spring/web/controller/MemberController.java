@@ -29,7 +29,7 @@ public class MemberController {
     // => @RequestMapping(value="login", method=RequestMethod.GET)
     public void login() {
         
-        log.info("로그인 페이지 진입");
+        log.info("login page");
         
     }
 	
@@ -68,7 +68,7 @@ public class MemberController {
     // => @RequestMapping(value="regist", method=RequestMethod.GET)
     public void memberReigstGET() {
         
-        log.info("회원 가입 페이지 진입");
+        log.info("register page");
         
     }
 	
