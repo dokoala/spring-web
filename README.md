@@ -2,21 +2,23 @@
 기본적인 CRUD 게시판 형태부터 시작해서 기능을 하나씩 추가해 나갈 예정입니다.
 (게시판, 로그인, 댓글)
 
-## 사용 언어
+## 사용 기술
 javascript, cstl, jsp, java(spring mvc framework), mysql
+bootstrap(https://getbootstrap.com/docs/5.0/components/accordion/)
 
 ## 기능
 1. 게시판을 조회할 수 있는 기능.
 
 
 ## 호출
-1. GET 조회(/board/list)
-2. POST 등록(/board/regist)
-3. POST 수정(/board/update)
-4. POST 삭제(/board/delete)
-5. POST 로그인(/member/login)
-6. GET 회원가입(/member/regist)
-7. 
+1. 조회 GET(/board/list)
+2. 등록 POST(/board/regist)
+3. 수정 POST(/board/update)
+4. 삭제 POST(/board/delete)
+5. 로그인 POST(/member/login)
+6. 회원가입 POST(/member/regist)
+7. ID체크 POST(/member/IdCheck)
+8. 닉네임체크 POST(/member/nicknameCheck)
 
 ## DB TABLE (MySQL)
 ### 1. board table 
