@@ -13,4 +13,10 @@ public interface MemberService {
 	
 	/* 로그인2 */
 	public MemberVO login2(LoginDTO loginDTO);
+
+	/* 아이디 체크 */
+	public int idCheck(String id);
+
+	/* 닉네임 체크 */
+	public int nicknameCheck(String nickname);
 }

@@ -11,6 +11,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.spring.web.model.MemberVO;
@@ -84,4 +86,52 @@ public class MemberController {
         
         return "redirect:/member/login";
     }
+    
+ // 아이디 체크
+    @PostMapping("/idCheck")
+    @ResponseBody
+    public String idCheck(String memberId) throws Exception{
+		
+    	log.info("memberIdChk() 진입");
+		
+		int result = memberService.idCheck(memberId);
+		
+		log.info("결과값 = " + result + " 값 : " + memberId);
+		
+		if(result != 0) {
+			
+			return "fail";	// 중복 아이디가 존재
+			
+		} 
+		else {
+			
+			return "success";	// 중복 아이디 x
+			
+		}
+		
+	}
+    
+    // 닉네임 체크
+    @PostMapping("/nicknameCheck")
+    @ResponseBody
+    public String nicknameCheck(String nickname) throws Exception{
+		
+    	log.info("nicknameCheck() 진입");
+		
+		int result = memberService.nicknameCheck(nickname);
+		
+		log.info("결과값 = " + result + " 값 : " + nickname);
+		
+		if(result != 0) {
+			
+			return "fail";	// 중복 아이디가 존재
+			
+		} 
+		else {
+			
+			return "success";	// 중복 아이디 x
+			
+		}
+		
+	}
 }

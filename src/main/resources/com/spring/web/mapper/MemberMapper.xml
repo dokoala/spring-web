@@ -22,4 +22,16 @@
 		select * from member
 		where id = #{id} and password = #{password};
 	</select>
+	
+	<!-- ID 중복 체크 -->
+    <select id="idCheck" parameterType="String" resultType="int">
+        select count(id) from member
+        where id= #{id};
+    </select>
+    
+    <!-- 닉네임 중복 체크 -->
+    <select id="nicknameCheck" parameterType="String" resultType="int">
+        select count(nickname) from member
+        where id= #{nickname};
+    </select>
   </mapper>

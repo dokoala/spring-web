@@ -4,24 +4,24 @@
 <%@include file ="../common/head.jsp"%>
 
 
-<link href="../../../resources/css/login/login.css" rel="stylesheet">
+<link href="../../../resources/css/member/member.css" rel="stylesheet">
 
 <body class="text-center" style="width=500px">
 	<section class = "login">
 		<form action="/member/login" method="post">
-			<h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+			<h1 class="h3 mb-3 fw-normal">로그인</h1>
 	
 		  	<div class="form-floating">
-		  		<input type="text" name="id" class="form-control" id="floatingInput" placeholder="name@example.com">
-	      		<label for="floatingInput">ID</label>
+		  		<input type="text" name="id" class="form-control" id="floatingInput" placeholder="아이디를 입력하시오">
+	      		<label for="floatingInput">아이디</label>
 		    </div>
 		    <div class="form-floating">
 		      	<input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password">
-		      	<label for="floatingPassword">Password</label>
+		      	<label for="floatingPassword">패스워드</label>
 		    </div>
 			<button class="w-100 btn btn-lg btn-primary" type="submit" id="btnLogin">로그인</button>
 		</form>
-	<a href="/member/regist" class="top_btn">회원 가입</a>
+	<a href="/member/regist" class="top_btn" style="size=10px">회원 가입</a>
 	</section>
 </body>
 

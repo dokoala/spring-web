@@ -3,17 +3,27 @@
       
 <%@include file ="../common/head.jsp"%>
 
+<link href="../../../resources/css/board/board.css" rel="stylesheet">
+
 <body>
 
 <%@include file ="../common/header.jsp"%>
 
-<h1>목록페이지입니다.</h1>
+
  
-<div class="table_wrap">
-	<a href="/board/regist" class="top_btn">게시판 등록</a>
+<div class="container" style="margin-top: 2%">
 	<div class="bd-example">
-		<table class="table table-dark table-borderless width=500px;">
-			<thead>
+		<button type="button" class="btn btn-outline-dark" 
+		onclick="location.href='/board/regist' " style="float: right;">글 등록</button>
+		<table class="table">
+			<colgroup>
+				<col style="width:5%;">
+				<col style="width:40%;">				
+				<col style="width:15%;">				
+				<col style="width:20%;">
+				<col style="width:20%;">
+			</colgroup>
+			<thead class="thead-dark">
 				<tr>
 					<th class="bno_width">번호</th>
 					<th class="title_width">제목</th>
@@ -32,8 +42,8 @@
 						</a>			
 					</td>
 				    	<td><c:out value="${list.writer}"/></td>
-						<td><c:out value="${list.regdate}"/></td>
-						<td><c:out value="${list.updateDate}"/></td>
+						<td><fmt:formatDate value="${list.regdate}" pattern="yyyy/MM/dd"/></td>
+						<td><fmt:formatDate value="${list.updateDate}" pattern="yyyy/MM/dd"/></td>
 					</tr>
 				</c:forEach>
 			</tbody>

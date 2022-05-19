@@ -65,9 +65,16 @@ public class BoardController {
         
     }
     
-    /* 페이지 수정 */
+    @GetMapping("/update")
+    public void boardUpdateGET(int bno, Model model) {
+        
+        model.addAttribute("pageInfo", boardService.getPage(bno));
+        
+    }
+    
+    /* 수정 하기*/
     @PostMapping("/update")
-    public String boardModifyPOST(BoardVO board, RedirectAttributes rttr) {
+    public String boardUpdatePOST(BoardVO board, RedirectAttributes rttr) {
         
         boardService.update(board);
         

@@ -1,15 +1,33 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<script
-  src="https://code.jquery.com/jquery-3.4.1.js"
-  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-  crossorigin="anonymous"></script>
+<%@include file ="../common/head.jsp"%>
+
+<link href="../../../resources/css/board/board.css" rel="stylesheet">
+
+<body>
+
+<%@include file ="../common/header.jsp"%>
+<div class = "container" style="margin-top: 2%">
+<h1>게시판 등록</h1>
+	<form action="/board/regist" method="post">
+		<div class="mb-3">
+			<label for="exampleFormControlInput1" class="form-label">작성자</label>
+			<input type="text" name="writer" class="form-control"  placeholder="작성자" 
+		  aria-label="writer" aria-describedby="basic-addon1">
+		</div>
+		<div class="mb-3">
+			<label for="exampleFormControlInput1" class="form-label">제목</label>
+			<input type="text" name="title" class="form-control" placeholder="제목" 
+		  aria-label="title" aria-describedby="basic-addon1">
+		</div>
+		<div class="mb-3">
+			<label for="exampleFormControlTextarea1" class="form-label">글 내용</label>
+			<textarea class="form-control" name="content" aria-label="With textarea"></textarea>
+		</div>
+	    <button class="btn btn-outline-dark">등록</button>
+	</form>
+</div>
+</body>
 <script>
 $(document).ready(function(){
     
@@ -31,25 +49,4 @@ $(document).ready(function(){
     
 });
 </script>
-
-</head>
-<body>
-
-<h1>게시판 등록</h1>
-<form action="/board/regist" method="post">
-    <div class="input_wrap">
-        <label>Title</label>
-        <input name="title">
-    </div>
-    <div class="input_wrap">
-        <label>Content</label>
-        <textarea rows="3" name="content"></textarea>
-    </div>
-    <div class="input_wrap">
-        <label>Writer</label>
-        <input name="writer">
-    </div>
-    <button class="btn">등록</button>
-</form>
-</body>
 </html>

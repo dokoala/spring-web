@@ -30,6 +30,17 @@ public class MemberServiceImpl implements MemberService{
 	public MemberVO login2(LoginDTO loginDTO) {
 		return memberMapper.login2(loginDTO);
 	}
-	
-	
+
+	// 아이디 중복 체크
+    @Override
+    public int idCheck(String id) {
+        int cnt = memberMapper.idCheck(id);
+        return cnt;
+    }
+
+	@Override
+	public int nicknameCheck(String nickname) {
+		int cnt = memberMapper.nicknameCheck(nickname);
+        return cnt;
+	}	
 }

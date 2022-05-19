@@ -13,4 +13,10 @@ public interface MemberMapper {
 
 	/* 로그인 체크2 */
 	public MemberVO login2(LoginDTO loginDTO);
+
+	/* ID 체크 */
+	public int idCheck(String id);
+
+	/* 닉네임 체크 */
+	public int nicknameCheck(String nickname);
 }
