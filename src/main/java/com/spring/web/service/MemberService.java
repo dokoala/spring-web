@@ -18,5 +18,5 @@ public interface MemberService {
 	public int idCheck(String id);
 
 	/* 닉네임 체크 */
-	public int nicknameCheck(String nickname);
+	public int nicknameCheck(String nickname);	
 }

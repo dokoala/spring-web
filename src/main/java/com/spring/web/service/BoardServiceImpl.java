@@ -7,40 +7,56 @@ import org.springframework.stereotype.Service;
 
 import com.spring.web.mapper.BoardMapper;
 import com.spring.web.model.BoardVO;
+import com.spring.web.model.Criteria;
 
 @Service
 public class BoardServiceImpl implements BoardService{
 
 	@Autowired
-	private BoardMapper mapper;
+	private BoardMapper boardMapper;
 	
 	@Override
 	public void registBoard(BoardVO board) {
-		mapper.registBoard(board);		
+		
+		boardMapper.registBoard(board);		
 	}
 
 	@Override
 	public List<BoardVO> getList() {
-		// TODO Auto-generated method stub
-		return mapper.getList();
+
+		return boardMapper.getList();
 	}
 
 	/* 게시판 조회 */
     @Override
     public BoardVO getPage(int bno) {
          
-        return mapper.getPage(bno);
+        return boardMapper.getPage(bno);
     }
 
 	@Override
 	public int update(BoardVO board) {
 		
-		return mapper.update(board);
+		return boardMapper.update(board);
 	}
 
 	@Override
 	public int delete(int bno) {
-		// TODO Auto-generated method stub
-		return mapper.delete(bno);
-	}    
+
+		return boardMapper.delete(bno);
+	}
+
+    @Override
+    public List<BoardVO> getListPaging(Criteria cri) {
+        
+        return boardMapper.getListPaging(cri);
+    }      
+    
+
+	/* 게시물 총 갯수 */
+    @Override
+    public int getTotal() {
+        
+        return boardMapper.getTotal();
+    } 	
 }

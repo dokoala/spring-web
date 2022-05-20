@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.spring.web.model.BoardVO;
+import com.spring.web.model.Criteria;
+import com.spring.web.model.PageMakerDTO;
 import com.spring.web.service.BoardService;
 
 /**
@@ -28,12 +30,28 @@ public class BoardController {
 	
 	private static final Logger log = LoggerFactory.getLogger(BoardController.class);
 	
-	 @GetMapping("/list")
-    // => @RequestMapping(value="list", method=RequestMethod.GET)
-    public void boardListGET(Model model) {
+//	 @GetMapping("/list")
+//    // => @RequestMapping(value="list", method=RequestMethod.GET)
+//    public void boardListGET(Model model) {
+//        
+//        log.info("게시판 목록 페이지 진입");
+//        model.addAttribute("list", boardService.getList());
+//        
+//    }
+	
+	/* 게시판 목록 페이지 접속(페이징 적용) */
+    @GetMapping("/list")
+    public void boardListGET(Model model, Criteria cri) {
         
-        log.info("게시판 목록 페이지 진입");
-        model.addAttribute("list", boardService.getList());
+    	log.info("boardListGET");
+        
+        model.addAttribute("list", boardService.getListPaging(cri));
+        
+        int total = boardService.getTotal();
+        
+        PageMakerDTO pageMake = new PageMakerDTO(cri, total);
+        
+        model.addAttribute("pageMaker", pageMake);
         
     }
     
@@ -59,16 +77,19 @@ public class BoardController {
     
     /* 게시판 조회 */
     @GetMapping("/get")
-    public void boardGetPageGET(int bno, Model model) {
+    public void boardGetPageGET(int bno, Model model, Criteria cri) {
         
         model.addAttribute("pageInfo", boardService.getPage(bno));
         
+        model.addAttribute("cri", cri);
     }
     
     @GetMapping("/update")
-    public void boardUpdateGET(int bno, Model model) {
+    public void boardUpdateGET(int bno, Model model, Criteria cri) {
         
         model.addAttribute("pageInfo", boardService.getPage(bno));
+        
+        model.addAttribute("cri", cri);
         
     }
     
