@@ -1,6 +1,5 @@
 package com.spring.web.controller;
 
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -8,13 +7,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.server.session.WebSessionManager;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.spring.web.model.MemberVO;
@@ -25,8 +21,6 @@ import com.spring.web.service.MemberService;
 public class MemberController {
 	
 	private static final Logger log = LoggerFactory.getLogger(MemberController.class);
-	
-	private WebSessionManager sessionManager;
 	
 	@Autowired
 	private MemberService memberService;
@@ -70,9 +64,10 @@ public class MemberController {
 	// 로그아웃 하는 부분
     @PostMapping("/logout")
     public String logout(HttpSession session) {
+    	log.info("로그아웃 메서드 진입");
         session.invalidate(); // 세션 전체를 날려버림
-//      session.removeAttribute("login"); // 하나씩 하려면 이렇게 해도 됨.
-        return "redirect:/member/login"; // 로그아웃 후 게시글 목록으로 이동하도록...함
+//      session.removeAttribute("login"); // 하나씩 제거.
+        return "/member/login";
     }
 	
 	@GetMapping("/regist")

@@ -12,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import com.spring.web.model.LoginDTO;
+import com.spring.web.model.MemberVO;
 
 public class LoginInterceptor extends HandlerInterceptorAdapter {
 
@@ -23,13 +24,9 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
             throws Exception {
         
     	HttpSession httpSession = request.getSession();
-        
-        // 기존의 로그인 정보 제거
-        if (httpSession.getAttribute(LOGIN) != null) {
-        	System.out.println("보드리스트로 왜 안가냐 ㅡㅡ");
-            logger.info("clear login data before");
-            httpSession.removeAttribute(LOGIN);
-        }
+    	MemberVO id = (MemberVO) httpSession.getAttribute("login");
+    	System.out.println(id);
+    	System.out.println(httpSession.getId());
 
         return true;
     }
@@ -42,7 +39,6 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
         ModelMap modelMap = modelAndView.getModelMap();
         Object memberVO =  modelMap.get("member");
         
-        System.out.println("아니뭐임?");
         System.out.println(memberVO);
         if (memberVO != null) {
             logger.info("new login success");

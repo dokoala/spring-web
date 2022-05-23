@@ -25,15 +25,18 @@
 	
 	
 	<!-- 인터셉터 객체 생성 -->
-    <beans:bean id="authenticationInterceptor" class="com.spring.web.commons.AuthenticationInterceptor">
-    </beans:bean>
+    <beans:bean id="loginInterceptor" class="com.spring.web.commons.LoginInterceptor"/>
+    
     <!-- Interceptor 설정 -->
     <interceptors>
         <interceptor>
-            <mapping path="/board/register"/>
-            <mapping path="/board/update"/>
+            <mapping path="/board/regist"/>
+            <mapping path="/board/get/**"/>
+            <mapping path="/board/update/**"/>
             <mapping path="/board/delete"/>
-            <beans:ref bean="authenticationInterceptor"/>
+            <mapping path="/member/login"/>
+            <mapping path="/member/logout"/>
+            <beans:ref bean="loginInterceptor"/>
         </interceptor>
     </interceptors>
 	
