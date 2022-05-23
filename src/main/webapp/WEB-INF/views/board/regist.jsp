@@ -12,8 +12,8 @@
 	<form action="/board/regist" method="post">
 		<div class="mb-3">
 			<label for="exampleFormControlInput1" class="form-label">작성자</label>
-			<input type="text" name="writer" class="form-control"  placeholder="작성자" 
-		  aria-label="writer" aria-describedby="basic-addon1">
+			<input type="text" name="writer" class="form-control"  readonly="readonly" 
+			value='<c:out value="${memberInfo.nickname}"/>'>
 		</div>
 		<div class="mb-3">
 			<label for="exampleFormControlInput1" class="form-label">제목</label>

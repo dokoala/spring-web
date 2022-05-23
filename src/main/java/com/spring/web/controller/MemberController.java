@@ -1,5 +1,6 @@
 package com.spring.web.controller;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.server.session.WebSessionManager;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.spring.web.model.MemberVO;
@@ -23,6 +25,8 @@ import com.spring.web.service.MemberService;
 public class MemberController {
 	
 	private static final Logger log = LoggerFactory.getLogger(MemberController.class);
+	
+	private WebSessionManager sessionManager;
 	
 	@Autowired
 	private MemberService memberService;
@@ -37,9 +41,11 @@ public class MemberController {
 	
 	@PostMapping("/login")
     // => @RequestMapping(value="login", method=RequestMethod.POST)
-    public String loginPOST(MemberVO member, HttpSession session, RedirectAttributes rttr) {
+    public String loginPOST(MemberVO member, HttpServletRequest request, RedirectAttributes rttr) {
 		
 		String returnURL ="";
+		HttpSession session = request.getSession();
+		
         if ( session.getAttribute("login") != null ){
             // 기존에 login이란 세션 값이 존재한다면
             session.removeAttribute("login"); // 기존값을 제거해 준다.
@@ -47,9 +53,12 @@ public class MemberController {
          
         // 로그인이 성공하면 UserVO 객체를 반환함.
         MemberVO memberVO = memberService.login(member);
-         
+        
+        log.info("login 멤버 정보" + memberVO);
+        
         if ( memberVO != null ){ // 로그인 성공
             session.setAttribute("login", memberVO); // 세션에 login인이란 이름으로 UserVO 객체를 저장해 놈.
+            log.info("login 멤버 정보 :" + session.getAttribute("login"));
             returnURL ="redirect:/board/list"; // 로그인 성공시 게시글 목록페이지로 바로 이동하도록 하고
         }else { // 로그인에 실패한 경우
             returnURL ="redirect:/member/login"; // 로그인 폼으로 다시 가도록 함
@@ -63,7 +72,7 @@ public class MemberController {
     public String logout(HttpSession session) {
         session.invalidate(); // 세션 전체를 날려버림
 //      session.removeAttribute("login"); // 하나씩 하려면 이렇게 해도 됨.
-        return "redirect:/board/list"; // 로그아웃 후 게시글 목록으로 이동하도록...함
+        return "redirect:/member/login"; // 로그아웃 후 게시글 목록으로 이동하도록...함
     }
 	
 	@GetMapping("/regist")

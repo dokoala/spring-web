@@ -43,8 +43,10 @@
 	</div>
 	
 	<div class="btn_wrap">
-		<a class="btn btn-outline-dark" id="list_btn">목록 페이지</a> 
-		<a class="btn btn-outline-dark" id="update_btn">수정 하기</a>
+		<a class="btn btn-outline-dark" id="list_btn">목록 페이지</a>
+		<c:if test="${writerCheck eq 0}"> 
+		  <a class="btn btn-outline-dark" id="update_btn">수정 하기</a>
+		</c:if>
 	</div>
 </div>
 <form id="infoForm" action="/board/update" method="get">

@@ -2,6 +2,8 @@ package com.spring.web.controller;
 
 import java.util.Locale;
 
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +17,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.spring.web.model.BoardVO;
 import com.spring.web.model.Criteria;
+import com.spring.web.model.MemberVO;
 import com.spring.web.model.PageMakerDTO;
 import com.spring.web.service.BoardService;
 
@@ -57,18 +60,21 @@ public class BoardController {
     
     @GetMapping("/regist")
     // => @RequestMapping(value="regist", method=RequestMethod.GET)
-    public void boardReigstGET() {
-        
+    public void boardReigstGET(Model model, HttpSession session) {
+    	MemberVO memberVO = (MemberVO) session.getAttribute("login");
+    	model.addAttribute("memberInfo", memberVO);
+    	log.info("게시자 닉네임 " + memberVO.getNickname());
         log.info("게시판 등록 페이지 진입");
         
     }	 
 
     // 게시판 등록 
     @PostMapping("/regist")
-    public String boardReigstPOST(BoardVO board, RedirectAttributes rttr) {
+    public String boardReigstPOST(BoardVO board, HttpSession session, RedirectAttributes rttr) {
         
         log.info("BoardVO : " + board);
         boardService.registBoard(board);
+        
         
         rttr.addFlashAttribute("result", "regist success");
         
@@ -77,18 +83,38 @@ public class BoardController {
     
     /* 게시판 조회 */
     @GetMapping("/get")
-    public void boardGetPageGET(int bno, Model model, Criteria cri) {
-        
-        model.addAttribute("pageInfo", boardService.getPage(bno));
-        
+    public void boardGetPageGET(int bno, Model model, Criteria cri, HttpSession session) {
+    	log.info("게시판 조회 페이지 진입");
+    	MemberVO memberVO = (MemberVO) session.getAttribute("login");
+    	BoardVO boardVO = boardService.getPage(bno);
+
+    	if(memberVO.getNickname().equals(boardVO.getWriter())) {
+    		model.addAttribute("writerCheck", 0);
+    		log.info("닉네임 같음");
+    	}
+    	else{
+    		model.addAttribute("writerCheck", 1);
+    		log.info("닉네임 다름");
+    	}    	
+        model.addAttribute("pageInfo", boardVO);        
         model.addAttribute("cri", cri);
     }
     
     @GetMapping("/update")
-    public void boardUpdateGET(int bno, Model model, Criteria cri) {
-        
-        model.addAttribute("pageInfo", boardService.getPage(bno));
-        
+    public void boardUpdateGET(int bno, Model model, Criteria cri, HttpSession session) {
+    	log.info("게시판 수정 페이지 진입");
+    	MemberVO memberVO = (MemberVO) session.getAttribute("login");
+    	BoardVO boardVO = boardService.getPage(bno);
+    	if(memberVO.getNickname().equals(boardVO.getWriter())) {
+    		model.addAttribute("writerCheck", 0);
+    		log.info("닉네임 같음");
+    	}
+    	else{
+    		model.addAttribute("writerCheck", 1);
+    		log.info("닉네임 다름");
+    	}
+    	
+        model.addAttribute("pageInfo", boardService.getPage(bno));        
         model.addAttribute("cri", cri);
         
     }

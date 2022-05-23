@@ -45,9 +45,12 @@
 			</div>	
 			<div class="btn_wrap">
 				<a class="btn btn-outline-dark" id="list_btn">목록 페이지</a> 
-				<a class="btn btn-outline-success" id="update_btn">수정 완료</a>
-				<a class="btn btn-outline-danger" id="delete_btn">삭제</a>
-				<a class="btn btn-outline-dark" id="cancel_btn">수정 취소</a>
+				
+				<c:if test="${writerCheck eq 0}"> 
+				  	<a class="btn btn-outline-success" id="update_btn">수정 완료</a>
+					<a class="btn btn-outline-danger" id="delete_btn">삭제</a>
+					<a class="btn btn-outline-dark" id="cancel_btn">수정 취소</a>
+				</c:if>
 			</div>
 		</form>
 		<form id="infoForm" action="/board/update" method="get">

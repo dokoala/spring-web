@@ -37,7 +37,7 @@
 					<tr>
 					    <td><c:out value="${list.bno}"/></td>
 					<td>
-						<a class="move" href='<c:out value="${list.bno}"/>'>
+						<a class="move" id="no" href='<c:out value="${list.bno}"/>'>
 							<c:out value="${list.title}"/>
 						</a>			
 					</td>
@@ -48,6 +48,7 @@
 				</c:forEach>
 			</tbody>
 		</table>
+		
 		<nav aria-label="Page navigation example">
         	<ul id="pageInfo" class="pagination justify-content-center pageInfo">
         	
@@ -104,13 +105,13 @@
 	});
 	
 	let moveForm = $("#moveForm");
-	
 	$(".move").on("click", function(e){
-	    e.preventDefault();
-	    
-	    moveForm.append("<input type='hidden' name='bno' value='"+ $(this).attr("href")+ "'>");
-	    moveForm.attr("action", "/board/get");
-	    moveForm.submit();
+		e.preventDefault();
+		
+		moveForm.append("<input type='hidden' name='bno' value='"+ $(this).attr("href")+ "'>");
+		moveForm.attr("action", "/board/get");
+		moveForm.submit();
+		moveForm.find("#bno").remove();
 	});
 	
 	$(".pageInfo a").on("click", function(e){
@@ -121,6 +122,8 @@
         moveForm.submit();
         
     });
+	
+
 </script>
 
 </body>
