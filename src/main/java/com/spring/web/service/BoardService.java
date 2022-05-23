@@ -24,5 +24,5 @@ public interface BoardService {
     public List<BoardVO> getListPaging(Criteria cri);
 
 	/* °Ô½ÃÆÇ ÃÑ °¹¼ö */
-    public int getTotal();
+    public int getTotal(Criteria cri);
 }

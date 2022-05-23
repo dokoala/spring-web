@@ -12,9 +12,7 @@
 
  
 <div class="container" style="margin-top: 2%">
-	<div class="bd-example">
-		<button type="button" class="btn btn-outline-dark" 
-		onclick="location.href='/board/regist' " style="float: right;">글 등록</button>
+	<div class="bd-example">		
 		<table class="table">
 			<colgroup>
 				<col style="width:5%;">
@@ -49,6 +47,15 @@
 			</tbody>
 		</table>
 		
+		<button type="button" class="btn btn-outline-dark" 
+		onclick="location.href='/board/regist' " style="float: right;">글 등록</button>
+		<div class="search_wrap">
+	        <div class="search_area d-flex">
+	            <input class="form-control me-2" id = "search" type="search" style="width:25%; float: left;"
+          		placeholder="Search" name="keyword" value="${pageMaker.cri.keyword }">
+	            <button class="btn btn-outline-dark" type="submit" >Search</button>
+	        </div>
+	    </div> 
 		<nav aria-label="Page navigation example">
         	<ul id="pageInfo" class="pagination justify-content-center pageInfo">
         	
@@ -71,7 +78,8 @@
 	</div>
 	<form id="moveForm" method="get">
 		<input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum }">
-        <input type="hidden" name="amount" value="${pageMaker.cri.amount }">    
+        <input type="hidden" name="amount" value="${pageMaker.cri.amount }">
+        <input type="hidden" name="keyword" value="${pageMaker.cri.keyword }">
     </form>
 </div>
 
@@ -121,6 +129,14 @@
         moveForm.attr("action", "/board/list");
         moveForm.submit();
         
+    });
+	
+	$(".search_area button").on("click", function(e){
+        e.preventDefault();
+        let val = $("input[name='keyword']").val();
+        moveForm.find("input[name='keyword']").val(val);
+        moveForm.find("input[name='pageNum']").val(1);
+        moveForm.submit();
     });
 	
 

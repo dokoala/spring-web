@@ -8,6 +8,9 @@ public class Criteria {
     /* 한 페이지 당 보여질 게시물 갯수 */
     private int amount;
     
+    /* 검색 단어*/
+    private String keyword;
+    
     /* 스킵 할 게시물 수( (pageNum-1) * amount ) */
     private int skip;
     
@@ -52,11 +55,24 @@ public class Criteria {
 		this.skip = skip;
 	}
 
+
+	public String getKeyword() {
+		return keyword;
+	}
+
+
+	public void setKeyword(String keyword) {
+		this.keyword = keyword;
+	}
+
+
 	@Override
 	public String toString() {
-		return "Criteria [pageNum=" + pageNum + ", amount=" + amount + ", getPageNum()=" + getPageNum()
-				+ ", getAmount()=" + getAmount() + "]";
+		return "Criteria [pageNum=" + pageNum + ", amount=" + amount + ", keyword=" + keyword + ", skip=" + skip
+				+ ", getPageNum()=" + getPageNum() + ", getAmount()=" + getAmount() + ", getSkip()=" + getSkip()
+				+ ", getKeyword()=" + getKeyword() + "]";
 	}
-    
+
+	
     
 }
