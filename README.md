@@ -6,7 +6,7 @@
 javascript, cstl, jsp, java(spring mvc framework), mysql
 bootstrap(https://getbootstrap.com/docs/5.0/components/accordion/)
 
-## 기능
+## 기능 
 1. 게시판을 조회할 수 있는 기능.
 
 
