@@ -5,22 +5,6 @@
 ## 사용 기술 및 언어
 java(spring mvc framework), mysql(8.0.22), javascript, cstl, jsp, css, tomcat server(9.0)
 
-## 기능
-1. 전체 게시물 조회 GET(/board/list)
-2. 게시물 등록 페이지 이동 GET(/board/regist)
-3. 게시물 등록 POST(/board/regist)
-4. 게시판 조회 GET(/board/get)
-5. 게시물 수정 페이지 이동 GET(/board/update)
-6. 게시물 수정 POST(/board/boardUpdatePOST)
-7. 삭제 POST(/board/delete)
-8. 로그인 페이지 이동 GET(/member/login)
-9. 로그인 POST(/member/login)
-10. 로그아웃 POST(/logout)
-11. 회원가입 페이지 이동 GET(/member/regist)
-12. 회원가입 POST(/member/regist)
-13. ID체크 POST(/member/IdCheck)
-14. 닉네임체크 POST(/member/nicknameCheck)
-
 ## DB TABLE (MySQL)
 ### 1. board table 
 ```mysql
@@ -48,6 +32,22 @@ CREATE TABLE `member` (
   UNIQUE KEY `nickname_UNIQUE` (`nickname`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 ```
+
+## 기능
+1. 전체 게시물 조회 GET(/board/list)
+2. 게시물 등록 페이지 이동 GET(/board/regist)
+3. 게시물 등록 POST(/board/regist)
+4. 게시판 조회 GET(/board/get)
+5. 게시물 수정 페이지 이동 GET(/board/update)
+6. 게시물 수정 POST(/board/boardUpdatePOST)
+7. 삭제 POST(/board/delete)
+8. 로그인 페이지 이동 GET(/member/login)
+9. 로그인 POST(/member/login)
+10. 로그아웃 POST(/logout)
+11. 회원가입 페이지 이동 GET(/member/regist)
+12. 회원가입 POST(/member/regist)
+13. ID체크 POST(/member/IdCheck)   ajax를 이용하여 화면에서 중복이 있는지 확인 가능.
+14. 닉네임체크 POST(/member/nicknameCheck)   ajax를 이용하여 화면에서 중복이 있는지 확인 가능.
 
 ## 실행 화면
 <img src="https://user-images.githubusercontent.com/56539587/170425637-f4aa6208-c991-42b3-a8e7-27b59214fdcf.gif">
