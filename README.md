@@ -54,7 +54,7 @@ CREATE TABLE `member` (
 1. 회원가입 및 로그인
 <img src="https://user-images.githubusercontent.com/56539587/170850158-00d673dc-6fa6-46f0-9a0b-e0ed42be3e4f.gif">
 2. 글 등록, 수정, 삭제
-<img src="https://user-images.githubusercontent.com/56539587/170850451-6e1a6d82-113e-43fc-8d10-a11e3721b42f.gif">
+<img src="https://user-images.githubusercontent.com/56539587/170850539-415ee7b6-80d9-4c23-8331-1508a2485d95.gif">
 
 ## 오류 및 수정
 - ~~autowired가 제대로 작동하지 않는 오류 발생. 페이지 위치를 제대로 잡지 못함.~~   
