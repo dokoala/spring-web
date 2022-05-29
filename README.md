@@ -51,7 +51,10 @@ CREATE TABLE `member` (
 14. 닉네임체크 POST(/member/nicknameCheck)   ajax를 이용하여 화면에서 중복이 있는지 확인 가능.
 
 ## 실행 화면
+1. 회원가입 및 로그인
 <img src="https://user-images.githubusercontent.com/56539587/170850158-00d673dc-6fa6-46f0-9a0b-e0ed42be3e4f.gif">
+2. 글 등록, 수정, 삭제
+<img src="https://user-images.githubusercontent.com/56539587/170850451-6e1a6d82-113e-43fc-8d10-a11e3721b42f.gif">
 
 ## 오류 및 수정
 - ~~autowired가 제대로 작동하지 않는 오류 발생. 페이지 위치를 제대로 잡지 못함.~~   
