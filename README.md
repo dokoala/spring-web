@@ -48,8 +48,8 @@ CREATE TABLE `member` (
 10. 로그아웃 POST(/logout)
 11. 회원가입 페이지 이동 GET(/member/regist)
 12. 회원가입 POST(/member/regist)
-13. ID체크 POST(/member/IdCheck)   ajax를 이용하여 화면에서 중복이 있는지 확인 가능.
-14. 닉네임체크 POST(/member/nicknameCheck)   ajax를 이용하여 화면에서 중복이 있는지 확인 가능.
+13. ID체크 POST(/member/IdCheck)   
+14. 닉네임체크 POST(/member/nicknameCheck)   
 
 ## 실행 화면
 - 회원가입 및 로그인   
