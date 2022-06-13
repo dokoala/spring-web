@@ -6,6 +6,8 @@ spring을 이용해 만든 기본적인 CRUD 게시판입니다.
 ## 사용 기술 및 언어
 java(spring mvc framework), mysql(8.0.22), javascript, jsp, css, tomcat server(9.0)
 
+
+
 ## DB TABLE (MySQL)
 ### 1. board table 
 ```mysql
